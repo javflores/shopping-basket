@@ -10,7 +10,7 @@ namespace AcceptanceTests.Setup
         public static void Start()
         {
             _application = new Process();
-            string TheShoppingBasketApplicationPath = $"{AppDomain.CurrentDomain.BaseDirectory}/TheShoppingBasket.exe";
+            string TheShoppingBasketApplicationPath = $"{AppDomain.CurrentDomain.BaseDirectory}\\TheShoppingBasket.exe";
 
             var startInfo = new ProcessStartInfo(TheShoppingBasketApplicationPath)
             {
