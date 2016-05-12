@@ -4,21 +4,16 @@ namespace TheShoppingBasket
 {
     public class Application
     {
-        public static void Main(string[] args)
+        private readonly IShoppingBasket _shoppingBasket;
+
+        public Application(IShoppingBasket shoppingBasket)
         {
-            ExecuteApplication();
+            _shoppingBasket = shoppingBasket;
         }
 
-        private static void ExecuteApplication()
+        public void Execute(string command)
         {
-            while (true)
-            {
-                var command = Console.ReadLine();
-                if (command.Contains("Total"))
-                {
-                    Console.WriteLine("2.95");
-                }
-            }
+            _shoppingBasket.Add("bread", 1);
         }
     }
 }
