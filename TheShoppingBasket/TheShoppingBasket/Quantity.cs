@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace TheShoppingBasket
 {
     public class Quantity
@@ -12,6 +15,14 @@ namespace TheShoppingBasket
         public override bool Equals(object anotherQuantity)
         {
             return ((Quantity)anotherQuantity)._quantity == _quantity;
+        }
+
+        public void Do(Action action)
+        {
+            for (var i = 0; i < _quantity; i++)
+            {
+                action();
+            }
         }
     }
 }

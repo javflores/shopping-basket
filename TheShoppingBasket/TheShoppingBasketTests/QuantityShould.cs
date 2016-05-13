@@ -1,4 +1,7 @@
-﻿using TheShoppingBasket;
+﻿using System;
+using System.Linq;
+using NSubstitute;
+using TheShoppingBasket;
 using Xunit;
 
 namespace TheShoppingBasketTests
@@ -21,6 +24,18 @@ namespace TheShoppingBasketTests
             Quantity anotherQuantity = new Quantity("2");
 
             Assert.NotEqual(quantity, anotherQuantity);
+        }
+
+        [Fact]
+        public void do_action_for_times_given_in_quantity()
+        {
+            var timesToDoAction = 3;
+            Quantity quantity = new Quantity(timesToDoAction.ToString());
+            Action fakeAction = Substitute.For<Action>();
+
+            quantity.Do(fakeAction);
+
+            Assert.Equal(timesToDoAction, fakeAction.ReceivedCalls().Count());
         }
     }
 }
