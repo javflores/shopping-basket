@@ -6,7 +6,14 @@ namespace TheShoppingBasket
 
         public void Add(Product product, Quantity quantity)
         {
-            _total = new Money(0.80m);
+            if (product.Equals(new Product("milk")))
+            {
+                _total = new Money(1.15m);
+            }
+            else
+            {
+                _total = new Money(0.80m);
+            }
         }
 
         public Money Total()

@@ -20,16 +20,18 @@ namespace TheShoppingBasketTests
             Assert.Equal(new Money(0.00m), total);
         }
 
-        [Fact]
-        public void total_product_cost_when_individual_product_has_been_added()
+        [Theory]
+        [InlineData("butter", 0.80)]
+        [InlineData("milk", 1.15)]
+        public void total_product_cost_when_individual_product_has_been_added(string productName, decimal expectedTotal)
         {
-            Product butter = new Product("butter");
+            Product butter = new Product(productName);
             Quantity quantity = new Quantity("1");
             _shoppingBasket.Add(butter, quantity);
 
             Money total = _shoppingBasket.Total();
 
-            Assert.Equal(new Money(0.80m), total);
+            Assert.Equal(new Money(expectedTotal), total);
         }
     }
 }
