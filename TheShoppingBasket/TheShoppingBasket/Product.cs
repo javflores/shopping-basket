@@ -13,5 +13,10 @@
         {
             return ((Product)anotherProduct)._name == _name;
         }
+
+        public override int GetHashCode()
+        {
+            return _name.GetHashCode();
+        }
     }
 }
