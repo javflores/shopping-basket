@@ -9,7 +9,7 @@ namespace TheShoppingBasket
 
         public Money Total()
         {
-            throw new System.NotImplementedException();
+            return new Money(0.00m);
         }
     }
 }

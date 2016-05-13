@@ -65,6 +65,7 @@
     <Compile Include="ProductShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuantityShould.cs" />
+    <Compile Include="ShoppingBasketShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheShoppingBasket\TheShoppingBasket.csproj">
