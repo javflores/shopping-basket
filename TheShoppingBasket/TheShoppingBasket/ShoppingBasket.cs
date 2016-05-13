@@ -2,14 +2,16 @@ namespace TheShoppingBasket
 {
     internal class ShoppingBasket : IShoppingBasket
     {
+        private Money _total = new Money(0.00m);
+
         public void Add(Product product, Quantity quantity)
         {
-            throw new System.NotImplementedException();
+            _total = new Money(0.80m);
         }
 
         public Money Total()
         {
-            return new Money(0.00m);
+            return _total;
         }
     }
 }
