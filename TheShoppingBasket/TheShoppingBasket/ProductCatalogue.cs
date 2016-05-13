@@ -18,7 +18,13 @@ namespace TheShoppingBasket
 
         public Money Cost(Product product)
         {
-            return _productCatalogue[product];
+            if (_productCatalogue.ContainsKey(product))
+            {
+                return _productCatalogue[product];
+            }
+
+            return new Money(0.00m);
+            
         }
     }
 }
