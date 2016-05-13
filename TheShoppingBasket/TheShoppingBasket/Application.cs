@@ -22,18 +22,18 @@
             ShowTotal();
         }
 
-        private void ShowTotal()
-        {
-            Money total = _shoppingBasket.Total();
-            _display.Show(total);
-        }
-
         private void AddProduct(string command)
         {
             var parameters = command.Split(' ');
             var product = new Product(parameters[2]);
             var quantity = new Quantity(parameters[1]);
             _shoppingBasket.Add(product, quantity);
+        }
+
+        private void ShowTotal()
+        {
+            Money total = _shoppingBasket.Total();
+            _display.Show(total);
         }
     }
 }

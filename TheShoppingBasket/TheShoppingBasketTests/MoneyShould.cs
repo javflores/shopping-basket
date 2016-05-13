@@ -31,5 +31,13 @@ namespace TheShoppingBasketTests
 
             Assert.Equal(new Money(3.0m), first + second);
         }
+
+        [Fact]
+        public void have_string_representation()
+        {
+            Money money = new Money(1.00m);
+
+            Assert.Equal("£1.00", money.ToString());
+        }
     }
 }

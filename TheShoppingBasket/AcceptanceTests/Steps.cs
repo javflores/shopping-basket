@@ -23,9 +23,9 @@ namespace AcceptanceTests
         }
 
         [Then(@"the total should be £(.*)")]
-        public void ThenTheTotalShouldBe(Decimal total)
+        public void ThenTheTotalShouldBe(decimal total)
         {
-            _total.ShouldEqual(total.ToString());
+            _total.ShouldContain($"{total}");
         }
     }
 }

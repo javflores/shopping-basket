@@ -1,4 +1,6 @@
-﻿namespace TheShoppingBasket
+﻿using System.Globalization;
+
+namespace TheShoppingBasket
 {
     public class Money
     {
@@ -18,6 +20,11 @@
         {
             var amount = money._amount + anotherMoney._amount;
             return new Money(amount);
+        }
+
+        public override string ToString()
+        {
+            return $"{_amount.ToString("C", new CultureInfo("en-GB"))}";
         }
     }
 }

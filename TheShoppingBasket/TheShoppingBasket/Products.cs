@@ -13,6 +13,12 @@ namespace TheShoppingBasket
             _products = new List<Product>();
             _productCatalogue = new ProductCatalogue();
         }
+
+        public void Add(Product product)
+        {
+            _products.Add(product);
+        }
+
         public Money Cost()
         {
             if (!_products.Any())
@@ -23,11 +29,6 @@ namespace TheShoppingBasket
             return _products
                 .Select(product => _productCatalogue.Cost(product))
                 .Aggregate((cost, nextCost) => cost + nextCost);
-        }
-
-        public void Add(Product product)
-        {
-            _products.Add(product);
         }
     }
 }

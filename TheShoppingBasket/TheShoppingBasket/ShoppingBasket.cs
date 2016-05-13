@@ -1,5 +1,3 @@
-using System;
-
 namespace TheShoppingBasket
 {
     internal class ShoppingBasket : IShoppingBasket
