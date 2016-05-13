@@ -1,6 +1,6 @@
 namespace TheShoppingBasket
 {
-    public class ShoppingBasket : IShoppingBasket
+    internal class ShoppingBasket : IShoppingBasket
     {
         public void Add(Product product, Quantity quantity)
         {

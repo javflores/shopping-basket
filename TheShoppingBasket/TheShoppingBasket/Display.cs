@@ -1,6 +1,6 @@
 ﻿namespace TheShoppingBasket
 {
-    public class Display : IDisplay
+    internal class Display : IDisplay
     {
         public void Show(Money output)
         {
