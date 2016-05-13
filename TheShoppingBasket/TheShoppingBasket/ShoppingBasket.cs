@@ -1,20 +1,18 @@
-using System.Collections.Generic;
-
 namespace TheShoppingBasket
 {
     internal class ShoppingBasket : IShoppingBasket
     {
         private Money _total = new Money(0.00m);
+        private readonly IProductCatalogue _productCatalogue;
+
+        public ShoppingBasket()
+        {
+            _productCatalogue = new ProductCatalogue();
+        }
 
         public void Add(Product product, Quantity quantity)
         {
-            var productCatalogue = new Dictionary<Product, Money>()
-            {
-                [new Product("butter")] = new Money(0.80m),
-                [new Product("milk")] = new Money(1.15m)
-            };
-
-            _total = productCatalogue[product];
+            _total = _productCatalogue.Cost(product);
         }
 
         public Money Total()
