@@ -22,5 +22,14 @@ namespace TheShoppingBasketTests
 
             Assert.NotEqual(originalMoney, anotherMoney);
         }
+
+        [Fact]
+        public void sum_two_moneys()
+        {
+            Money first = new Money(1.0m);
+            Money second = new Money(2.0m);
+
+            Assert.Equal(new Money(3.0m), first + second);
+        }
     }
 }

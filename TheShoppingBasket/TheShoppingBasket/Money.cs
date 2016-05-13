@@ -13,5 +13,11 @@
         {
             return ((Money)anotherMoney)._amount == _amount;
         }
+
+        public static Money operator +(Money money, Money anotherMoney)
+        {
+            var amount = money._amount + anotherMoney._amount;
+            return new Money(amount);
+        }
     }
 }

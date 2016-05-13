@@ -1,23 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace TheShoppingBasket
 {
     internal class ShoppingBasket : IShoppingBasket
     {
-        private readonly IProductCatalogue _productCatalogue;
-        private Product _product = new Product("dummy");
+        private Products _products = new Products();
 
         public ShoppingBasket()
         {
-            _productCatalogue = new ProductCatalogue();
+            new ProductCatalogue();
         }
 
         public void Add(Product product, Quantity quantity)
         {
-            _product = product;
+            _products.Add(product);
         }
 
         public Money Total()
         {
-            return _productCatalogue.Cost(_product);
+            return _products.Cost();
         }
     }
 }
