@@ -1,7 +1,8 @@
 ﻿using TheShoppingBasket.Model;
+using TheShoppingBasket.Service;
 using Xunit;
 
-namespace TheShoppingBasketTests.Model
+namespace TheShoppingBasketTests.Service
 {
     public class ShoppingBasketShould
     {

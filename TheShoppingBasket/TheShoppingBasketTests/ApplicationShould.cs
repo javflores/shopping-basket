@@ -2,6 +2,7 @@
 using TheShoppingBasket;
 using TheShoppingBasket.Infrastructure;
 using TheShoppingBasket.Model;
+using TheShoppingBasket.Service;
 using Xunit;
 
 namespace TheShoppingBasketTests
@@ -41,7 +42,7 @@ namespace TheShoppingBasketTests
         }
 
         [Fact]
-        public void prints_total()
+        public void print_total()
         {
             _shoppingBasket.Total().Returns(new Money(10.00m));
 

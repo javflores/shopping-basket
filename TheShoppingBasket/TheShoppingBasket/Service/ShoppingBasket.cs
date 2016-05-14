@@ -1,4 +1,6 @@
-namespace TheShoppingBasket.Model
+using TheShoppingBasket.Model;
+
+namespace TheShoppingBasket.Service
 {
     public interface IShoppingBasket
     {
