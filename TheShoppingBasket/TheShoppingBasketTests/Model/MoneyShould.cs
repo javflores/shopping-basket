@@ -41,6 +41,15 @@ namespace TheShoppingBasketTests.Model
         }
 
         [Fact]
+        public void substract_two_moneys()
+        {
+            Money first = new Money(2.0m);
+            Money second = new Money(1.0m);
+
+            Assert.Equal(new Money(1.0m), first - second);
+        }
+
+        [Fact]
         public void have_string_representation()
         {
             Money money = new Money(1.00m);

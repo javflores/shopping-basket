@@ -27,6 +27,12 @@ namespace TheShoppingBasket.Model
             return new Money(amount);
         }
 
+        public static Money operator -(Money money, Money anotherMoney)
+        {
+            var amount = money._amount - anotherMoney._amount;
+            return new Money(amount);
+        }
+
         public override string ToString()
         {
             return $"{_amount.ToString("C", new CultureInfo("en-GB"))}";

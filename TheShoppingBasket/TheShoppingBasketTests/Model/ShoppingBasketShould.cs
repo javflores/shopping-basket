@@ -34,6 +34,17 @@ namespace TheShoppingBasketTests.Model
             Assert.Equal(new Money(3.80m), total);
         }
 
+        [Fact]
+        public void total_including_discount()
+        {
+            AddProduct("milk", "4");
+
+            Money total = _shoppingBasket.Total();
+
+            var expectedDiscountedTotal = new Money(3.45m);
+            Assert.Equal(expectedDiscountedTotal, total);
+        }
+
         private void AddProduct(string productName, string quantity)
         {
             _shoppingBasket.Add(new Product(productName), new Quantity(quantity));

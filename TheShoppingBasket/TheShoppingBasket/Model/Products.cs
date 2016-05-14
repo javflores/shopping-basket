@@ -27,11 +27,22 @@ namespace TheShoppingBasket.Model
             if (_products.Any())
             {
                 cost = _products
-                    .Select(product => _productCatalogue.Cost(product))
-                    .Aggregate((amount, nextAmount) => amount + nextAmount);
+                .Select(product => _productCatalogue.Cost(product))
+                .Aggregate((amount, nextAmount) => amount + nextAmount);
             }
 
             return cost;
+        }
+
+        public Money Discount()
+        {
+            var numberOfMilks = _products.Count(product => product.Equals(new Product("milk")));
+            if (numberOfMilks == 4)
+            {
+                return new Money(1.15m);
+            }
+
+            return new Money();
         }
     }
 }

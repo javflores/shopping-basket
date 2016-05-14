@@ -17,7 +17,7 @@ namespace TheShoppingBasket.Model
 
         public Money Total()
         {
-            return _products.Cost();
+            return _products.Cost() - _products.Discount();
         }
     }
 }
