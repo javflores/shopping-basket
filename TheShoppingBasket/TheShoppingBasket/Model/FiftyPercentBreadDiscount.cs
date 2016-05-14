@@ -10,10 +10,15 @@ namespace TheShoppingBasket.Model
 
             if (CanApplyOffer(products))
             {
-                return _productCatalogue.Cost(new Product("bread")).FiftyPercent();
+                return Offer();
             }
 
             return discount;
+        }
+
+        private Money Offer()
+        {
+            return _productCatalogue.Cost(new Product("bread")).FiftyPercent();
         }
 
         private bool CanApplyOffer(Products products)

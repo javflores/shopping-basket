@@ -17,3 +17,10 @@ Scenario: Shopping quantity of same product to enjoy free product offer
 	And the basket has "2" "bread"
 	When I total the basket
 	Then the total should be £3.10
+
+Scenario: Shopping quantity a number of products including several offers
+	Given the basket has "2" "butter"
+	And the basket has "1" "bread"
+	And the basket has "8" "milk"
+	When I total the basket
+	Then the total should be £9.00
