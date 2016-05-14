@@ -81,10 +81,10 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Shopping quantity of same product to enjoy free product offer", SourceLine=9)]
-        public virtual void ShoppingQuantityOfSameProductToEnjoyFreeProductOffer()
+        [TechTalk.SpecRun.ScenarioAttribute("Buy 3 milk and get the 4th milk for free", SourceLine=9)]
+        public virtual void Buy3MilkAndGetThe4ThMilkForFree()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shopping quantity of same product to enjoy free product offer", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buy 3 milk and get the 4th milk for free", ((string[])(null)));
 #line 10
 this.ScenarioSetup(scenarioInfo);
 #line 11
@@ -93,6 +93,24 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I total the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
  testRunner.Then("the total should be £3.45", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Shopping quantity of same product to enjoy free product offer", SourceLine=14)]
+        public virtual void ShoppingQuantityOfSameProductToEnjoyFreeProductOffer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shopping quantity of same product to enjoy free product offer", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+ testRunner.Given("the basket has \"2\" \"butter\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.And("the basket has \"2\" \"bread\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.When("I total the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("the total should be £3.10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
