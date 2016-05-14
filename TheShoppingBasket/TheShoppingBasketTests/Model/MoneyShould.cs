@@ -6,6 +6,14 @@ namespace TheShoppingBasketTests.Model
     public class MoneyShould
     {
         [Fact]
+        public void equal_to_zero_when_no_amount_is_provided()
+        {
+            Money zeroAmount = new Money();
+
+            Assert.Equal(new Money(0.0m), zeroAmount);
+        }
+
+        [Fact]
         public void equal_to_another_money_if_amount_is_same()
         {
             Money originalMoney = new Money(1.0m);

@@ -11,6 +11,11 @@ namespace TheShoppingBasket.Model
             _amount = amount;
         }
 
+        public Money()
+        {
+            _amount = 0.00m;
+        }
+
         public override bool Equals(object anotherMoney)
         {
             return ((Money)anotherMoney)._amount == _amount;

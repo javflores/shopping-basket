@@ -22,14 +22,16 @@ namespace TheShoppingBasket.Model
 
         public Money Cost()
         {
-            if (!_products.Any())
+            var cost = new Money();
+
+            if (_products.Any())
             {
-                return new Money(0.00m);
+                cost = _products
+                    .Select(product => _productCatalogue.Cost(product))
+                    .Aggregate((amount, nextAmount) => amount + nextAmount);
             }
 
-            return _products
-                .Select(product => _productCatalogue.Cost(product))
-                .Aggregate((cost, nextCost) => cost + nextCost);
+            return cost;
         }
     }
 }
