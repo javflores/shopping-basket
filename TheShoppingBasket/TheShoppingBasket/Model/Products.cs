@@ -36,14 +36,18 @@ namespace TheShoppingBasket.Model
 
         public Money Discount()
         {
+            var discount = new Money();
             var milk = new Product("milk");
             var numberOfMilks = _products.Count(product => product.Equals(milk));
-            if (numberOfMilks == 4)
+            if (numberOfMilks % 4 == 0)
             {
-                return _productCatalogue.Cost(milk);
+                for (int i = 0; i < numberOfMilks / 4; i++)
+                {
+                    discount += _productCatalogue.Cost(milk);
+                }
             }
 
-            return new Money();
+            return discount;
         }
     }
 }

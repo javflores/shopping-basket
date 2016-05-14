@@ -49,6 +49,7 @@ namespace TheShoppingBasketTests.Model
         [Theory]
         [InlineData("milk", 4, 1.15)]
         [InlineData("milk", 8, 2.30)]
+        [InlineData("milk", 12, 3.45)]
         public void discount_product(string productName, int quantity, decimal expectedDiscount)
         {
             AddProduct(productName, quantity);
