@@ -1,4 +1,5 @@
-﻿using TheShoppingBasket.Infrastructure;
+﻿using System;
+using TheShoppingBasket.Infrastructure;
 using TheShoppingBasket.Model;
 
 namespace TheShoppingBasket
@@ -27,16 +28,23 @@ namespace TheShoppingBasket
 
         private void AddProduct(string command)
         {
-            var parameters = command.Split(' ');
-            var product = new Product(parameters[2]);
-            var quantity = new Quantity(parameters[1]);
-            _shoppingBasket.Add(product, quantity);
+            var parameters = ParseAddProductCommand(command);
+            _shoppingBasket.Add(parameters.Item1, parameters.Item2);
         }
 
         private void ShowTotal()
         {
             Money total = _shoppingBasket.Total();
             _display.Show(total);
+        }
+
+        private Tuple<Product, Quantity> ParseAddProductCommand(string command)
+        {
+            var parameters = command.Split(' ');
+            var product = new Product(parameters[2]);
+            var quantity = new Quantity(parameters[1]);
+
+            return new Tuple<Product, Quantity>(product, quantity);
         }
     }
 }
