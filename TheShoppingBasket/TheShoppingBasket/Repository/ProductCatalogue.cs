@@ -1,7 +1,13 @@
 ﻿using System.Collections.Generic;
+using TheShoppingBasket.Model;
 
-namespace TheShoppingBasket
+namespace TheShoppingBasket.Repository
 {
+    public interface IProductCatalogue
+    {
+        Money Cost(Product product);
+    }
+
     internal class ProductCatalogue : IProductCatalogue
     {
         private readonly Dictionary<Product, Money> _productCatalogue;

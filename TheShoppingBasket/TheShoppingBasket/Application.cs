@@ -1,4 +1,7 @@
-﻿namespace TheShoppingBasket
+﻿using TheShoppingBasket.Infrastructure;
+using TheShoppingBasket.Model;
+
+namespace TheShoppingBasket
 {
     public class Application
     {

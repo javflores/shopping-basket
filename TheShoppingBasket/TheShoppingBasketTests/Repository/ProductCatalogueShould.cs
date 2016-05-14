@@ -1,7 +1,8 @@
-﻿using TheShoppingBasket;
+﻿using TheShoppingBasket.Model;
+using TheShoppingBasket.Repository;
 using Xunit;
 
-namespace TheShoppingBasketTests
+namespace TheShoppingBasketTests.Repository
 {
     public class ProductCatalogueShould
     {

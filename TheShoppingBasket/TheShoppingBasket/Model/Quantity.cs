@@ -1,7 +1,6 @@
 using System;
-using System.Linq;
 
-namespace TheShoppingBasket
+namespace TheShoppingBasket.Model
 {
     public class Quantity
     {

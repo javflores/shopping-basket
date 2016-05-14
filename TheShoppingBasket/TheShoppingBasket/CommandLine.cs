@@ -1,4 +1,6 @@
 ﻿using System;
+using TheShoppingBasket.Infrastructure;
+using TheShoppingBasket.Model;
 
 namespace TheShoppingBasket
 {

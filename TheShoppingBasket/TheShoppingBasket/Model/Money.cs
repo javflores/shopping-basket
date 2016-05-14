@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace TheShoppingBasket
+namespace TheShoppingBasket.Model
 {
     public class Money
     {

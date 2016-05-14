@@ -1,5 +1,7 @@
 ﻿using NSubstitute;
 using TheShoppingBasket;
+using TheShoppingBasket.Infrastructure;
+using TheShoppingBasket.Model;
 using Xunit;
 
 namespace TheShoppingBasketTests

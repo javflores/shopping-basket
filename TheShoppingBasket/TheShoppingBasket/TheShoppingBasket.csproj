@@ -46,17 +46,14 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="CommandLine.cs" />
-    <Compile Include="Display.cs" />
-    <Compile Include="IDisplay.cs" />
-    <Compile Include="IProductCatalogue.cs" />
-    <Compile Include="IShoppingBasket.cs" />
-    <Compile Include="Money.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductCatalogue.cs" />
-    <Compile Include="Products.cs" />
+    <Compile Include="Infrastructure\Display.cs" />
+    <Compile Include="Model\Money.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Products.cs" />
+    <Compile Include="Model\Quantity.cs" />
+    <Compile Include="Model\ShoppingBasket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quantity.cs" />
-    <Compile Include="ShoppingBasket.cs" />
+    <Compile Include="Repository\ProductCatalogue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

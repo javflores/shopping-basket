@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TheShoppingBasket.Repository;
 
-namespace TheShoppingBasket
+namespace TheShoppingBasket.Model
 {
     public class Products
     {

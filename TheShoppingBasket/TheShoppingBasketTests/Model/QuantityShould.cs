@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using NSubstitute;
-using TheShoppingBasket;
+using TheShoppingBasket.Model;
 using Xunit;
 
-namespace TheShoppingBasketTests
+namespace TheShoppingBasketTests.Model
 {
     public class QuantityShould
     {
