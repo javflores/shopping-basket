@@ -53,6 +53,7 @@
     <Compile Include="Model\Quantity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProductCatalogue.cs" />
+    <Compile Include="Service\Discount.cs" />
     <Compile Include="Service\ShoppingBasket.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

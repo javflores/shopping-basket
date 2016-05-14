@@ -33,21 +33,5 @@ namespace TheShoppingBasket.Model
 
             return cost;
         }
-
-        public Money Discount()
-        {
-            var discount = new Money();
-            var milk = new Product("milk");
-            var numberOfMilks = _products.Count(product => product.Equals(milk));
-            if (numberOfMilks % 4 == 0)
-            {
-                for (int i = 0; i < numberOfMilks / 4; i++)
-                {
-                    discount += _productCatalogue.Cost(milk);
-                }
-            }
-
-            return discount;
-        }
     }
 }

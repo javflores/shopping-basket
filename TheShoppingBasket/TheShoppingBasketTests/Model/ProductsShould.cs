@@ -28,7 +28,7 @@ namespace TheShoppingBasketTests.Model
         [InlineData("bread", 1.00)]
         public void return_cost_of_single_product_added(string productName, decimal expectedCost)
         {
-            AddProduct(productName, 1);
+            AddProduct(productName);
 
             Money cost = _products.Cost();
 
@@ -38,33 +38,17 @@ namespace TheShoppingBasketTests.Model
         [Fact]
         public void return_cost_when_contains_several_products()
         {
-            AddProduct("milk", 1);
-            AddProduct("butter", 1);
+            AddProduct("milk");
+            AddProduct("butter");
 
             Money cost = _products.Cost();
 
             Assert.Equal(new Money(1.95m), cost);
         }
 
-        [Theory]
-        [InlineData("milk", 4, 1.15)]
-        [InlineData("milk", 8, 2.30)]
-        [InlineData("milk", 12, 3.45)]
-        public void discount_product(string productName, int quantity, decimal expectedDiscount)
+        private void AddProduct(string productName)
         {
-            AddProduct(productName, quantity);
-
-            Money discount = _products.Discount();
-
-            Assert.Equal(new Money(expectedDiscount), discount);
-        }
-
-        private void AddProduct(string productName, int quantity)
-        {
-            for (int i = 0; i < quantity; i++)
-            {
-                _products.Add(new Product(productName));
-            }
+            _products.Add(new Product(productName));
         }
     }
 }
