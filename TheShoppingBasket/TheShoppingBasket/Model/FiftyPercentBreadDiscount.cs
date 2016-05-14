@@ -7,12 +7,21 @@ namespace TheShoppingBasket.Model
         public override Money Apply(Products products)
         {
             var discount = new Money();
-            var numberOfButter = products.Count(product => product.Equals(new Product("butter")));
-            for (int i = 0; i < numberOfButter / 2; i++)
+
+            if (CanApplyOffer(products))
             {
-                discount += _productCatalogue.Cost(new Product("bread")).FiftyPercent();
+                return _productCatalogue.Cost(new Product("bread")).FiftyPercent();
             }
+
             return discount;
+        }
+
+        private bool CanApplyOffer(Products products)
+        {
+            var numberOfButter = products.Count(product => product.Equals(new Product("butter")));
+            var numberOfBread = products.Count(product => product.Equals(new Product("bread")));
+
+            return numberOfBread > 0 && numberOfButter > 1;
         }
     }
 }

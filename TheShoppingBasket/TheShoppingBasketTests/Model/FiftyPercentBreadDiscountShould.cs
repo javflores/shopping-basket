@@ -9,10 +9,12 @@ namespace TheShoppingBasketTests.Model
 
         [Theory]
         [InlineData(1, 1, 0.00)]
+        [InlineData(2, 0, 0.00)]
         [InlineData(2, 1, 0.50)]
         [InlineData(3, 1, 0.50)]
-        [InlineData(4, 2, 1.0)]
-        public void discount_bread_at_50_percent_off(int butterQuantity, int breadQuantity, decimal expectedDiscount)
+        [InlineData(4, 1, 0.50)]
+        [InlineData(4, 2, 0.50)]
+        public void discount_a_bread_at_50_percent_off(int butterQuantity, int breadQuantity, decimal expectedDiscount)
         {
             Products products = new Products();
             AddProducts(products, "butter", butterQuantity);
