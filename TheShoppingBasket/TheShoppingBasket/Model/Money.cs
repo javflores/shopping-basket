@@ -33,6 +33,11 @@ namespace TheShoppingBasket.Model
             return new Money(amount);
         }
 
+        public Money FiftyPercent()
+        {
+            return new Money(_amount * 0.5m);
+        }
+
         public override string ToString()
         {
             return $"{_amount.ToString("C", new CultureInfo("en-GB"))}";

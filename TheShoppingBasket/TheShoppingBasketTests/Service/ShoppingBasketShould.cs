@@ -36,13 +36,26 @@ namespace TheShoppingBasketTests.Service
         }
 
         [Fact]
-        public void total_including_discount()
+        public void total_including_discount_of_4th_milk_free()
         {
             AddProduct("milk", "4");
+            AddProduct("bread", "2");
 
             Money total = _shoppingBasket.Total();
 
-            var expectedDiscountedTotal = new Money(3.45m);
+            var expectedDiscountedTotal = new Money(5.45m);
+            Assert.Equal(expectedDiscountedTotal, total);
+        }
+
+        [Fact]
+        public void total_including_discount_of_bread_half_price()
+        {
+            AddProduct("butter", "2");
+            AddProduct("bread", "1");
+
+            Money total = _shoppingBasket.Total();
+
+            var expectedDiscountedTotal = new Money(2.10m);
             Assert.Equal(expectedDiscountedTotal, total);
         }
 

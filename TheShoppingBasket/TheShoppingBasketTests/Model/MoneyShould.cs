@@ -50,6 +50,14 @@ namespace TheShoppingBasketTests.Model
         }
 
         [Fact]
+        public void perform_fifty_percent()
+        {
+            Money money = new Money(2.0m);
+
+            Assert.Equal(new Money(1.0m), money.FiftyPercent());
+        }
+
+        [Fact]
         public void have_string_representation()
         {
             Money money = new Money(1.00m);

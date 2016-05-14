@@ -11,7 +11,7 @@ namespace TheShoppingBasket.Service
     internal class ShoppingBasket : IShoppingBasket
     {
         private readonly Products _products = new Products();
-        private readonly Discount _discount = new Discount();
+        private readonly Discounts _discounts = new Discounts();
 
         public void Add(Product product, Quantity quantity)
         {
@@ -20,7 +20,7 @@ namespace TheShoppingBasket.Service
 
         public Money Total()
         {
-            return _products.Cost() - _discount.Apply(_products);
+            return _products.Cost() - _discounts.Apply(_products);
         }
     }
 }
