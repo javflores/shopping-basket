@@ -11,6 +11,7 @@ namespace TheShoppingBasketTests.Model
         {
             _products = new Products();
         }
+
         [Fact]
         public void return_zero_cost_when_no_product_have_been_added()
         {
