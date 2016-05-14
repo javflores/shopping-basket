@@ -1,4 +1,6 @@
-﻿using TheShoppingBasket.Model;
+﻿using NSubstitute;
+using TheShoppingBasket.Model;
+using TheShoppingBasket.Repository;
 using Xunit;
 
 namespace TheShoppingBasketTests.Model
@@ -44,14 +46,16 @@ namespace TheShoppingBasketTests.Model
             Assert.Equal(new Money(1.95m), cost);
         }
 
-        [Fact]
-        public void discount_product()
+        [Theory]
+        [InlineData("milk", 4, 1.15)]
+        [InlineData("milk", 8, 2.30)]
+        public void discount_product(string productName, int quantity, decimal expectedDiscount)
         {
-            AddProduct("milk", 4);
+            AddProduct(productName, quantity);
 
             Money discount = _products.Discount();
 
-            Assert.Equal(new Money(1.15m), discount);
+            Assert.Equal(new Money(expectedDiscount), discount);
         }
 
         private void AddProduct(string productName, int quantity)

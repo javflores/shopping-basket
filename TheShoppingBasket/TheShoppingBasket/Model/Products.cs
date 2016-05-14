@@ -7,7 +7,7 @@ namespace TheShoppingBasket.Model
     public class Products
     {
         private readonly IList<Product> _products;
-        private readonly ProductCatalogue _productCatalogue;
+        private readonly IProductCatalogue _productCatalogue;
 
         public Products()
         {
@@ -36,10 +36,11 @@ namespace TheShoppingBasket.Model
 
         public Money Discount()
         {
-            var numberOfMilks = _products.Count(product => product.Equals(new Product("milk")));
+            var milk = new Product("milk");
+            var numberOfMilks = _products.Count(product => product.Equals(milk));
             if (numberOfMilks == 4)
             {
-                return new Money(1.15m);
+                return _productCatalogue.Cost(milk);
             }
 
             return new Money();
