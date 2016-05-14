@@ -43,7 +43,7 @@ namespace TheShoppingBasket
         {
             var parameters = command.Split(' ');
             var product = new Product(parameters[2]);
-            var quantity = new Quantity(parameters[1]);
+            var quantity = new Quantity(int.Parse(parameters[1]));
 
             return new Tuple<Product, Quantity>(product, quantity);
         }

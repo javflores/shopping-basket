@@ -6,9 +6,9 @@ namespace TheShoppingBasket.Model
     {
         private readonly int _quantity;
 
-        public Quantity(string quantity)
+        public Quantity(int quantity)
         {
-            _quantity = int.Parse(quantity);
+            _quantity = quantity;
         }
 
         public override bool Equals(object anotherQuantity)

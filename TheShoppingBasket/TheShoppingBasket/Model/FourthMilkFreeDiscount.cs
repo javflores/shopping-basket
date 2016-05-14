@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace TheShoppingBasket.Model
 {
@@ -6,20 +7,29 @@ namespace TheShoppingBasket.Model
     {
         public override Money Apply(Products products)
         {
-            var discount = new Money();
-
-            var numberOfMilks = NumberOfTimesToApplyOffer(products);
-            for (int i = 0; i < numberOfMilks / 4; i++)
+            var numberOfTimesToApplyOffer = NumberOfTimesToApplyOffer(products);
+            if (numberOfTimesToApplyOffer < 1)
             {
-                discount += _productCatalogue.Cost(new Product("milk"));
+                return new Money();
             }
+
+            return Offer(products);
+        }
+
+        private Money Offer(Products products)
+        {
+            var discount = new Money();
+            var quantity = new Quantity(NumberOfTimesToApplyOffer(products));
+
+            Action offer = () => discount += _productCatalogue.Cost(new Product("milk"));
+            quantity.Do(offer);
 
             return discount;
         }
 
-        private static int NumberOfTimesToApplyOffer(Products products)
+        private int NumberOfTimesToApplyOffer(Products products)
         {
-            return products.Count(product => product.Equals(new Product("milk")));
+            return products.Count(product => product.Equals(new Product("milk")))/4;
         }
     }
 }

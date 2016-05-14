@@ -1,5 +1,4 @@
-﻿using System;
-using AcceptanceTests.Setup;
+﻿using AcceptanceTests.Setup;
 using Should;
 using TechTalk.SpecFlow;
 

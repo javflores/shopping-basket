@@ -21,9 +21,9 @@ namespace TheShoppingBasketTests
         }
 
         [Theory]
-        [InlineData("Add 1 bread", "bread", "1")]
-        [InlineData("Add 3 milk", "milk", "3")]
-        public void add_items_to_shopping_basket_when_user_command_contains_add(string command, string productName, string quantity)
+        [InlineData("Add 1 bread", "bread", 1)]
+        [InlineData("Add 3 milk", "milk", 3)]
+        public void add_items_to_shopping_basket_when_user_command_contains_add(string command, string productName, int quantity)
         {
             _application.Execute(command);
 

@@ -11,8 +11,8 @@ namespace TheShoppingBasketTests.Model
         [Fact]
         public void equal_to_another_quantity()
         {
-            Quantity quantity = new Quantity("1");
-            Quantity anotherQuantity = new Quantity("1");
+            Quantity quantity = new Quantity(1);
+            Quantity anotherQuantity = new Quantity(1);
 
             Assert.Equal(quantity, anotherQuantity);
         }
@@ -20,8 +20,8 @@ namespace TheShoppingBasketTests.Model
         [Fact]
         public void not_equal_to_another_quantity()
         {
-            Quantity quantity = new Quantity("1");
-            Quantity anotherQuantity = new Quantity("2");
+            Quantity quantity = new Quantity(1);
+            Quantity anotherQuantity = new Quantity(2);
 
             Assert.NotEqual(quantity, anotherQuantity);
         }
@@ -30,7 +30,7 @@ namespace TheShoppingBasketTests.Model
         public void do_action_for_times_given_in_quantity()
         {
             var timesToDoAction = 3;
-            Quantity quantity = new Quantity(timesToDoAction.ToString());
+            Quantity quantity = new Quantity(timesToDoAction);
             Action fakeAction = Substitute.For<Action>();
 
             quantity.Do(fakeAction);
