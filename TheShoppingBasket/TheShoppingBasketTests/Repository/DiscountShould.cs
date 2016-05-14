@@ -16,18 +16,19 @@ namespace TheShoppingBasketTests.Repository
         [InlineData("milk", 14, 3.45)]
         public void discount_4th_product(string productName, int quantity, decimal expectedDiscount)
         {
-            AddProduct(productName, quantity);
+            Products products = new Products();
+            AddProduct(products, productName, quantity);
 
-            Money discount = _discount.Apply();
+            Money discount = _discount.Apply(products);
 
             Assert.Equal(new Money(expectedDiscount), discount);
         }
 
-        private void AddProduct(string productName, int quantity)
+        private void AddProduct(Products products, string productName, int quantity)
         {
             for (int i = 0; i < quantity; i++)
             {
-                _discount.Add(new Product(productName));
+                products.Add(new Product(productName));
             }
         }
     }

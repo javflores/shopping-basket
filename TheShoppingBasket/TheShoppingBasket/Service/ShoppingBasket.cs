@@ -16,12 +16,11 @@ namespace TheShoppingBasket.Service
         public void Add(Product product, Quantity quantity)
         {
             quantity.Do(() => _products.Add(product));
-            quantity.Do(() => _discount.Add(product));
         }
 
         public Money Total()
         {
-            return _products.Cost() - _discount.Apply();
+            return _products.Cost() - _discount.Apply(_products);
         }
     }
 }

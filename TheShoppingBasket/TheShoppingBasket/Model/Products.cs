@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TheShoppingBasket.Repository;
 
 namespace TheShoppingBasket.Model
 {
-    public class Products
+    public class Products : IEnumerable<Product>
     {
         private readonly IList<Product> _products;
         private readonly IProductCatalogue _productCatalogue;
@@ -32,6 +33,16 @@ namespace TheShoppingBasket.Model
             }
 
             return cost;
+        }
+
+        public IEnumerator<Product> GetEnumerator()
+        {
+            return _products.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
