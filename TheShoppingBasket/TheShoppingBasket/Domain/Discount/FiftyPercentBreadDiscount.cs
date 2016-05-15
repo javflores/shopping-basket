@@ -7,14 +7,12 @@ namespace TheShoppingBasket.Domain.Discount
     {
         public Money Apply(Products products)
         {
-            var discount = new Money();
-
             if (CanApplyOffer(products))
             {
                 return Offer();
             }
 
-            return discount;
+            return new Money();
         }
 
         private Money Offer()
