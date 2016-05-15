@@ -1,6 +1,6 @@
 using System;
 
-namespace TheShoppingBasket.Model
+namespace TheShoppingBasket.Domain
 {
     public class Quantity
     {
@@ -14,6 +14,11 @@ namespace TheShoppingBasket.Model
         public override bool Equals(object anotherQuantity)
         {
             return ((Quantity)anotherQuantity)._quantity == _quantity;
+        }
+
+        public static explicit operator Quantity(int quantity)
+        {
+            return new Quantity(quantity);
         }
 
         public void Do(Action action)

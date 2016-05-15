@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
+using TheShoppingBasket.Domain.Product;
 
-namespace TheShoppingBasket.Model
+namespace TheShoppingBasket.Domain.Discount
 {
-    public class FourthMilkFreeDiscount : Discount
+    public class FourthMilkFreeDiscount : IDiscount
     {
-        public override Money Apply(Products products)
+        public Money Apply(Products products)
         {
             var numberOfTimesToApplyOffer = NumberOfTimesToApplyOffer(products);
             if (numberOfTimesToApplyOffer < 1)
@@ -21,7 +22,7 @@ namespace TheShoppingBasket.Model
             var discount = new Money();
             var quantity = new Quantity(NumberOfTimesToApplyOffer(products));
 
-            Action offer = () => discount += _productCatalogue.Cost(new Product("milk"));
+            Action offer = () => discount += new Milk().Cost();
             quantity.Do(offer);
 
             return discount;
@@ -29,7 +30,7 @@ namespace TheShoppingBasket.Model
 
         private int NumberOfTimesToApplyOffer(Products products)
         {
-            return products.Count(product => product.Equals(new Product("milk")))/4;
+            return products.Count(product => product.Equals(new Milk()))/4;
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using TheShoppingBasket.Model;
+﻿using TheShoppingBasket.Domain;
 using Xunit;
 
-namespace TheShoppingBasketTests.Model
+namespace TheShoppingBasketTests.Domain
 {
     public class MoneyShould
     {

@@ -46,19 +46,23 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="CommandLine.cs" />
+    <Compile Include="Domain\Discount\IDiscount.cs" />
+    <Compile Include="Domain\Discount\Discounts.cs" />
+    <Compile Include="Domain\Discount\FiftyPercentBreadDiscount.cs" />
+    <Compile Include="Domain\Discount\FourthMilkFreeDiscount.cs" />
+    <Compile Include="Domain\Money.cs" />
+    <Compile Include="Domain\Product\Bread.cs" />
+    <Compile Include="Domain\Product\Butter.cs" />
+    <Compile Include="Domain\Product\Milk.cs" />
+    <Compile Include="Domain\Product\Product.cs" />
+    <Compile Include="Domain\Product\Products.cs" />
+    <Compile Include="Domain\Quantity.cs" />
+    <Compile Include="Domain\ShoppingBasket.cs" />
     <Compile Include="Infrastructure\Display.cs" />
-    <Compile Include="Model\Discount.cs" />
-    <Compile Include="Model\Discounts.cs" />
-    <Compile Include="Model\FiftyPercentBreadDiscount.cs" />
-    <Compile Include="Model\FourthMilkFreeDiscount.cs" />
-    <Compile Include="Model\Money.cs" />
-    <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\Products.cs" />
-    <Compile Include="Model\Quantity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ProductCatalogue.cs" />
-    <Compile Include="Service\ShoppingBasket.cs" />
+    <Compile Include="Services\ProductCatalogue.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

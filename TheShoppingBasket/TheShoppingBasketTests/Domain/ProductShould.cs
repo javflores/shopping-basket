@@ -1,7 +1,8 @@
-﻿using TheShoppingBasket.Model;
+﻿using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Product;
 using Xunit;
 
-namespace TheShoppingBasketTests.Model
+namespace TheShoppingBasketTests.Domain
 {
     public class ProductShould
     {
@@ -21,6 +22,14 @@ namespace TheShoppingBasketTests.Model
             Product anotherProduct = new Product("milk");
 
             Assert.NotEqual(originalProduct, anotherProduct);
+        }
+
+        [Fact]
+        public void have_default_cost()
+        {
+            Product product = new Product("dont-exist-yet");
+
+            Assert.Equal(new Money(), product.Cost());
         }
     }
 }

@@ -61,15 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationShould.cs" />
-    <Compile Include="Model\FiftyPercentBreadDiscountShould.cs" />
-    <Compile Include="Model\FourthMilkFreeDiscountShould.cs" />
-    <Compile Include="Model\MoneyShould.cs" />
-    <Compile Include="Model\ProductShould.cs" />
-    <Compile Include="Model\ProductsShould.cs" />
-    <Compile Include="Model\QuantityShould.cs" />
+    <Compile Include="Domain\DiscountsShould.cs" />
+    <Compile Include="Domain\FiftyPercentBreadDiscountShould.cs" />
+    <Compile Include="Domain\FourthMilkFreeDiscountShould.cs" />
+    <Compile Include="Domain\MoneyShould.cs" />
+    <Compile Include="Domain\ProductShould.cs" />
+    <Compile Include="Domain\ProductsShould.cs" />
+    <Compile Include="Domain\QuantityShould.cs" />
+    <Compile Include="Domain\ShoppingBasketShould.cs" />
+    <Compile Include="ProductCatalogueShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ProductCatalogueShould.cs" />
-    <Compile Include="Service\ShoppingBasketShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheShoppingBasket\TheShoppingBasket.csproj">
@@ -80,6 +81,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

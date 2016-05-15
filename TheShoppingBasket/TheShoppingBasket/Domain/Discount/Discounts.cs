@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
-using TheShoppingBasket.Repository;
+using TheShoppingBasket.Domain.Product;
 
-namespace TheShoppingBasket.Model
+namespace TheShoppingBasket.Domain.Discount
 {
     internal class Discounts
     {
-        private readonly IList<Discount> _discounts;
+        private readonly IList<IDiscount> _discounts;
         public Discounts()
         {
-            _discounts = new List<Discount>
+            _discounts = new List<IDiscount>
             {
                 new FourthMilkFreeDiscount(),
                 new FiftyPercentBreadDiscount()

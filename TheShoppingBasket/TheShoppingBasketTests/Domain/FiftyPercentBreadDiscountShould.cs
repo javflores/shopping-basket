@@ -1,11 +1,13 @@
-﻿using TheShoppingBasket.Model;
+﻿using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Discount;
+using TheShoppingBasket.Domain.Product;
 using Xunit;
 
-namespace TheShoppingBasketTests.Model
+namespace TheShoppingBasketTests.Domain
 {
     public class FiftyPercentBreadDiscountShould
     {
-        private readonly Discount fiftyPercentBreadDiscount = new FiftyPercentBreadDiscount();
+        private readonly IDiscount fiftyPercentBreadDiscount = new FiftyPercentBreadDiscount();
 
         [Theory]
         [InlineData(1, 1, 0.00)]
@@ -17,19 +19,27 @@ namespace TheShoppingBasketTests.Model
         public void discount_a_bread_at_50_percent_off(int butterQuantity, int breadQuantity, decimal expectedDiscount)
         {
             Products products = new Products();
-            AddProducts(products, "butter", butterQuantity);
-            AddProducts(products, "bread", breadQuantity);
+            AddButter(products, butterQuantity);
+            AddBread(products, breadQuantity);
 
             Money discount = fiftyPercentBreadDiscount.Apply(products);
 
             Assert.Equal(new Money(expectedDiscount), discount);
         }
 
-        private void AddProducts(Products products, string productName, int quantity)
+        private void AddButter(Products products, int quantity)
         {
             for (int i = 0; i < quantity; i++)
             {
-                products.Add(new Product(productName));
+                products.Add(new Butter());
+            }
+        }
+
+        private void AddBread(Products products, int quantity)
+        {
+            for (int i = 0; i < quantity; i++)
+            {
+                products.Add(new Bread());
             }
         }
     }

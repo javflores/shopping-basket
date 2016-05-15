@@ -1,11 +1,13 @@
-﻿using TheShoppingBasket.Model;
+﻿using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Discount;
+using TheShoppingBasket.Domain.Product;
 using Xunit;
 
-namespace TheShoppingBasketTests.Model
+namespace TheShoppingBasketTests.Domain
 {
     public class FourthMilkFreeDiscountShould
     {
-        private readonly Discount _fourthMilkFreeDiscount = new FourthMilkFreeDiscount();
+        private readonly IDiscount _fourthMilkFreeDiscount = new FourthMilkFreeDiscount();
 
         [Theory]
         [InlineData(3, 0)]
@@ -28,7 +30,7 @@ namespace TheShoppingBasketTests.Model
         {
             for (int i = 0; i < quantity; i++)
             {
-                products.Add(new Product("milk"));
+                products.Add(new Milk());
             }
         }
     }

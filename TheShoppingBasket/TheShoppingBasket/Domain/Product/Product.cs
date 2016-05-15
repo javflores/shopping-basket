@@ -1,4 +1,4 @@
-﻿namespace TheShoppingBasket.Model
+﻿namespace TheShoppingBasket.Domain.Product
 {
     public class Product
     {
@@ -9,14 +9,19 @@
             _name = name;
         }
 
+        public virtual Money Cost()
+        {
+            return new Money();
+        }
+
         public override bool Equals(object anotherProduct)
         {
             return ((Product)anotherProduct)._name == _name;
         }
 
-        public override int GetHashCode()
+        public static implicit operator string(Product product)
         {
-            return _name.GetHashCode();
+            return product._name;
         }
     }
 }

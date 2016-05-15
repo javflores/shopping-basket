@@ -1,8 +1,8 @@
 ﻿using NSubstitute;
 using TheShoppingBasket;
+using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Product;
 using TheShoppingBasket.Infrastructure;
-using TheShoppingBasket.Model;
-using TheShoppingBasket.Service;
 using Xunit;
 
 namespace TheShoppingBasketTests
@@ -27,10 +27,9 @@ namespace TheShoppingBasketTests
         {
             _application.Execute(command);
 
-            Product expectedProduct = new Product(productName);
             Quantity expectedQuantity = new Quantity(quantity);
             _shoppingBasket.Received().Add(
-                Arg.Is<Product>(p => p.Equals(expectedProduct)), Arg.Is<Quantity>(q => q.Equals(expectedQuantity)));
+                Arg.Is<Product>(p => p.Equals(new Product(productName))), Arg.Is<Quantity>(q => q.Equals(expectedQuantity)));
         }
 
         [Fact]

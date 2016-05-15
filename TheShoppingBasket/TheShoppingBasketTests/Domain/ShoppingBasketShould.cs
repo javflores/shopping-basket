@@ -1,8 +1,8 @@
-﻿using TheShoppingBasket.Model;
-using TheShoppingBasket.Service;
+﻿using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Product;
 using Xunit;
 
-namespace TheShoppingBasketTests.Service
+namespace TheShoppingBasketTests.Domain
 {
     public class ShoppingBasketShould
     {
@@ -16,8 +16,8 @@ namespace TheShoppingBasketTests.Service
         [Fact]
         public void total_cost_when_several_products_have_been_added()
         {
-            AddProduct("milk", 1);
-            AddProduct("butter", 1);
+            AddMilk(1);
+            AddButter(1);
 
             Money total = _shoppingBasket.Total();
 
@@ -27,8 +27,8 @@ namespace TheShoppingBasketTests.Service
         [Fact]
         public void total_cost_when_several_items_of_same_product_have_been_added()
         {
-            AddProduct("bread", 3);
-            AddProduct("butter", 1);
+            AddBread(3);
+            AddButter(1);
 
             Money total = _shoppingBasket.Total();
 
@@ -38,8 +38,8 @@ namespace TheShoppingBasketTests.Service
         [Fact]
         public void total_including_discount_of_4th_milk_free()
         {
-            AddProduct("milk", 4);
-            AddProduct("bread", 2);
+            AddMilk(4);
+            AddBread(2);
 
             Money total = _shoppingBasket.Total();
 
@@ -50,8 +50,8 @@ namespace TheShoppingBasketTests.Service
         [Fact]
         public void total_including_discount_of_bread_half_price()
         {
-            AddProduct("butter", 2);
-            AddProduct("bread", 1);
+            AddButter(2);
+            AddBread(1);
 
             Money total = _shoppingBasket.Total();
 
@@ -59,9 +59,23 @@ namespace TheShoppingBasketTests.Service
             Assert.Equal(expectedDiscountedTotal, total);
         }
 
-        private void AddProduct(string productName, int quantity)
+        private void AddBread(int quantity)
         {
-            _shoppingBasket.Add(new Product(productName), new Quantity(quantity));
+            AddProduct(new Bread(), quantity);
+        }
+
+        private void AddButter(int quantity)
+        {
+            AddProduct(new Butter(), quantity);
+        }
+        private void AddMilk(int quantity)
+        {
+            AddProduct(new Milk(), quantity);
+        }
+
+        private void AddProduct(Product product, int quantity)
+        {
+            _shoppingBasket.Add(product, (Quantity)quantity);
         }
     }
 }

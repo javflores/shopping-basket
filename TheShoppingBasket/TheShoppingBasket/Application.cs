@@ -1,7 +1,8 @@
 ﻿using System;
+using TheShoppingBasket.Domain;
+using TheShoppingBasket.Domain.Product;
 using TheShoppingBasket.Infrastructure;
-using TheShoppingBasket.Model;
-using TheShoppingBasket.Service;
+using TheShoppingBasket.Services;
 
 namespace TheShoppingBasket
 {
@@ -9,6 +10,7 @@ namespace TheShoppingBasket
     {
         private readonly IShoppingBasket _shoppingBasket;
         private readonly IDisplay _display;
+        private readonly IProductCatalogue _productCatalogue = new ProductCatalogue();
 
         public Application(IShoppingBasket shoppingBasket, IDisplay display)
         {
@@ -30,7 +32,11 @@ namespace TheShoppingBasket
         private void AddProduct(string command)
         {
             var parameters = ParseAddProductCommand(command);
-            _shoppingBasket.Add(parameters.Item1, parameters.Item2);
+
+            Product product = _productCatalogue.Get(parameters.Item1);
+            Quantity quantity = (Quantity) parameters.Item2;
+
+            _shoppingBasket.Add(product, quantity);
         }
 
         private void ShowTotal()
@@ -39,13 +45,13 @@ namespace TheShoppingBasket
             _display.Show(total);
         }
 
-        private Tuple<Product, Quantity> ParseAddProductCommand(string command)
+        private Tuple<string, int> ParseAddProductCommand(string command)
         {
             var parameters = command.Split(' ');
-            var product = new Product(parameters[2]);
-            var quantity = new Quantity(int.Parse(parameters[1]));
+            var product = parameters[2];
+            var quantity = int.Parse(parameters[1]);
 
-            return new Tuple<Product, Quantity>(product, quantity);
+            return new Tuple<string, int>(product, quantity);
         }
     }
 }

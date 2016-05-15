@@ -1,5 +1,5 @@
 ﻿using System;
-using TheShoppingBasket.Model;
+using TheShoppingBasket.Domain;
 
 namespace TheShoppingBasket.Infrastructure
 {

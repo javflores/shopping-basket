@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TheShoppingBasket.Repository;
 
-namespace TheShoppingBasket.Model
+namespace TheShoppingBasket.Domain.Product
 {
     public class Products : IEnumerable<Product>
     {
         private readonly IList<Product> _products;
-        private readonly IProductCatalogue _productCatalogue;
 
         public Products()
         {
             _products = new List<Product>();
-            _productCatalogue = new ProductCatalogue();
         }
 
         public void Add(Product product)
@@ -28,7 +25,7 @@ namespace TheShoppingBasket.Model
             if (_products.Any())
             {
                 cost = _products
-                .Select(product => _productCatalogue.Cost(product))
+                .Select(product => product.Cost())
                 .Aggregate((amount, nextAmount) => amount + nextAmount);
             }
 

@@ -1,10 +1,11 @@
-using TheShoppingBasket.Model;
+using TheShoppingBasket.Domain.Discount;
+using TheShoppingBasket.Domain.Product;
 
-namespace TheShoppingBasket.Service
+namespace TheShoppingBasket.Domain
 {
     public interface IShoppingBasket
     {
-        void Add(Product product, Quantity quantity);
+        void Add(Product.Product productName, Quantity quantity);
         Money Total();
     }
 
@@ -13,7 +14,7 @@ namespace TheShoppingBasket.Service
         private readonly Products _products = new Products();
         private readonly Discounts _discounts = new Discounts();
 
-        public void Add(Product product, Quantity quantity)
+        public void Add(Product.Product product, Quantity quantity)
         {
             quantity.Do(() => _products.Add(product));
         }

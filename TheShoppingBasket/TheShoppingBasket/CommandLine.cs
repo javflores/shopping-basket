@@ -1,6 +1,6 @@
 ﻿using System;
+using TheShoppingBasket.Domain;
 using TheShoppingBasket.Infrastructure;
-using TheShoppingBasket.Service;
 
 namespace TheShoppingBasket
 {
