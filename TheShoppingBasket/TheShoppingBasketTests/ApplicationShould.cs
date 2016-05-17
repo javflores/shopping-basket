@@ -1,5 +1,4 @@
-﻿using System;
-using NSubstitute;
+﻿using NSubstitute;
 using TheShoppingBasket;
 using TheShoppingBasket.Domain;
 using TheShoppingBasket.Domain.Product;
@@ -21,15 +20,13 @@ namespace TheShoppingBasketTests
             _application = new Application(_shoppingBasket,_display);
         }
 
-        [Theory]
-        [InlineData("Add 1 bread", typeof(Bread), 1)]
-        [InlineData("Add 3 milk", typeof(Milk), 3)]
-        public void add_items_to_shopping_basket_when_user_command_contains_add(string command, Type typeOfProduct, int quantity)
+        [Fact]
+        public void add_items_to_shopping_basket_when_user_command_contains_add()
         {
-            _application.Execute(command);
+            _application.Execute("Add 3 milk");
 
-            _shoppingBasket.Received().Add(
-                Arg.Is<Product>(p => p.GetType() == typeOfProduct && p.Quantity == quantity));
+            _shoppingBasket.Received()
+                .Add(Arg.Is<Product>(p => p.Equals(new Milk()) && p.Quantity == 3));
         }
 
         [Fact]

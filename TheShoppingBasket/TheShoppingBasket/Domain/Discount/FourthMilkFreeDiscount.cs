@@ -16,7 +16,7 @@ namespace TheShoppingBasket.Domain.Discount
 
         private int NumberOfTimesToApplyOffer(Products products)
         {
-            var milk = products.SingleOrDefault(product => product.GetType() == typeof(Milk));
+            var milk = products.SingleOrDefault(product => product.Equals(new Milk()));
             if (milk == null)
             {
                 return 0;
