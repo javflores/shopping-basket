@@ -5,7 +5,7 @@ namespace TheShoppingBasket.Services
 {
     public interface IProductWarehouse
     {
-        Product Find(string product);
+        Product Find(string product, int quantity);
     }
 
     internal class ProductWarehouse : IProductWarehouse
@@ -22,15 +22,23 @@ namespace TheShoppingBasket.Services
             };
         }
 
-        public Product Find(string product)
+        public Product Find(string product, int quantity)
         {
             if (_productCatalogue.ContainsKey(product))
             {
-                return _productCatalogue[product];
+                return PrepareProduct(product, quantity);
             }
 
             return new NullProduct();
             
+        }
+
+        private Product PrepareProduct(string product, int quantity)
+        {
+            var productInCatalogue = _productCatalogue[product];
+            productInCatalogue.AddQuantity(quantity);
+
+            return productInCatalogue;
         }
     }
 }

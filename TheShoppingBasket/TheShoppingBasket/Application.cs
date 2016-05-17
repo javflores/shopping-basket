@@ -33,10 +33,10 @@ namespace TheShoppingBasket
         {
             var parameters = ParseAddProductCommand(command);
 
-            Product product = _productWarehouse.Find(parameters.Item1);
-            Quantity quantity = (Quantity) parameters.Item2;
+            int quantity = parameters.Item2;
+            Product product = _productWarehouse.Find(parameters.Item1, quantity);
 
-            _shoppingBasket.Add(product, quantity);
+            _shoppingBasket.Add(product, (Quantity)parameters.Item2);
         }
 
         private void ShowTotal()

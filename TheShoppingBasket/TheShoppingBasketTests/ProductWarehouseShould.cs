@@ -16,7 +16,7 @@ namespace TheShoppingBasketTests
         {
             var productCatalogue = new ProductWarehouse();
 
-            Product productFromCatalogue = productCatalogue.Find(name);
+            Product productFromCatalogue = productCatalogue.Find(name, 2);
 
             Assert.Equal(typeOfProduct, productFromCatalogue.GetType());
         }
