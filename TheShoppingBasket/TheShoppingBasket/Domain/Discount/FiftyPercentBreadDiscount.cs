@@ -22,8 +22,8 @@ namespace TheShoppingBasket.Domain.Discount
 
         private bool CanApplyOffer(Products products)
         {
-            var numberOfButter = products.Count(product => product.Equals(new Butter()));
-            var numberOfBread = products.Count(product => product.Equals(new Bread()));
+            var numberOfButter = products.Count(product => product.GetType() == typeof(Butter));
+            var numberOfBread = products.Count(product => product.GetType() == typeof(Bread));
 
             return numberOfBread > 0 && numberOfButter > 1;
         }

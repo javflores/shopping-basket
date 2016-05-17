@@ -30,7 +30,7 @@ namespace TheShoppingBasket.Domain.Discount
 
         private int NumberOfTimesToApplyOffer(Products products)
         {
-            return products.Count(product => product.Equals(new Milk()))/4;
+            return products.Count(product => product.GetType() == typeof(Milk))/4;
         }
     }
 }

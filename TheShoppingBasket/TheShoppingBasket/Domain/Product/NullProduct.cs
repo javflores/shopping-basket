@@ -2,8 +2,9 @@
 {
     class NullProduct : Product
     {
-        public NullProduct() : base("")
+        public override Money Cost()
         {
+            return new Money();
         }
     }
 }
