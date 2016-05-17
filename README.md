@@ -6,9 +6,9 @@ Customer basket that allows a customer to add products and provides a total cost
 
 | Product | Cost  |
 | --------|------:|
-| Butter  | £0.80 |
-| Milk    | £1.15 |
-| Bread   | £1.00 |
+| Butter  | Â£0.80 |
+| Milk    | Â£1.15 |
+| Bread   | Â£1.00 |
 
 
 ### Offers:
@@ -22,19 +22,20 @@ Customer basket that allows a customer to add products and provides a total cost
 ```
 Given the basket has 1 bread, 1 butter and 1 milk 
 When I total the basket 
-Then the total should be £2.95
+Then the total should be Â£2.95
 
 Given the basket has 2 butter and 2 bread 
 When I total the basket 
-Then the total should be £3.10
+Then the total should be Â£3.10
 
 Given the basket has 4 milk 
 When I total the basket 
-Then the total should be £3.45
+Then the total should be Â£3.45
 
 Given the basket has 2 butter, 1 bread and 8 milk 
 When I total the basket 
-Then the total should be £9.00
+Then the total should be Â£9.00
+```
 
 ## Object Calisthenics 
 
@@ -43,11 +44,11 @@ Object Calisthenics are programming exercises, formalized as a set of 9 rules in
 These rules focus on maintainability, readability, testability, and comprehensibility of your code. These are the rules:
 
 1. Only One Level Of Indentation Per Method
-2. Don’t Use The ELSE Keyword
+2. Donâ€™t Use The ELSE Keyword
 3. Wrap All Primitives And Strings
 4. First Class Collections
 5. One Dot Per Line
-6. Don’t Abbreviate
+6. Donâ€™t Abbreviate
 7. Keep All Entities Small
 8. No Classes With More Than Two Instance Variables
 9. No Getters/Setters/Properties
