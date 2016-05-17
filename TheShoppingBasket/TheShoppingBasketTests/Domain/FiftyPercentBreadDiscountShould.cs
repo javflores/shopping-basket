@@ -29,18 +29,16 @@ namespace TheShoppingBasketTests.Domain
 
         private void AddButter(Products products, int quantity)
         {
-            for (int i = 0; i < quantity; i++)
-            {
-                products.Add(new Butter());
-            }
+            Butter butter = new Butter();
+            butter.AddQuantity(quantity);
+            products.Add(butter);
         }
 
         private void AddBread(Products products, int quantity)
         {
-            for (int i = 0; i < quantity; i++)
-            {
-                products.Add(new Bread());
-            }
+            Bread bread = new Bread();
+            bread.AddQuantity(quantity);
+            products.Add(bread);
         }
     }
 }

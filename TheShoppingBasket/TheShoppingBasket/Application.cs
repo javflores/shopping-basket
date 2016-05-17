@@ -36,7 +36,7 @@ namespace TheShoppingBasket
             int quantity = parameters.Item2;
             Product product = _productWarehouse.Find(parameters.Item1, quantity);
 
-            _shoppingBasket.Add(product, (Quantity)parameters.Item2);
+            _shoppingBasket.Add(product);
         }
 
         private void ShowTotal()

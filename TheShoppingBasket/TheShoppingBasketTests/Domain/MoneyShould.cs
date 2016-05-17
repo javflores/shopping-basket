@@ -50,6 +50,14 @@ namespace TheShoppingBasketTests.Domain
         }
 
         [Fact]
+        public void be_multipliable_by_integer()
+        {
+            Money money = new Money(2.0m);
+
+            Assert.Equal(new Money(4.0m), money * 2);
+        }
+
+        [Fact]
         public void perform_fifty_percent()
         {
             Money money = new Money(2.0m);

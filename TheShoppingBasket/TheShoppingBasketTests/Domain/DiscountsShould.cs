@@ -26,10 +26,8 @@ namespace TheShoppingBasketTests.Domain
 
         private void AddProduct(Products products, Product product, int quantity)
         {
-            for (int i = 0; i < quantity; i++)
-            {
-                products.Add(product);
-            }
+            product.AddQuantity(quantity);
+            products.Add(product);
         }
     }
 }

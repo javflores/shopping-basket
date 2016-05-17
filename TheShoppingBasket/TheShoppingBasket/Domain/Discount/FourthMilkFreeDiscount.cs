@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using TheShoppingBasket.Domain.Product;
 
 namespace TheShoppingBasket.Domain.Discount
@@ -8,29 +7,32 @@ namespace TheShoppingBasket.Domain.Discount
     {
         public Money Apply(Products products)
         {
-            var numberOfTimesToApplyOffer = NumberOfTimesToApplyOffer(products);
-            if (numberOfTimesToApplyOffer < 1)
-            {
-                return new Money();
-            }
-
-            return Offer(products);
-        }
-
-        private Money Offer(Products products)
-        {
             var discount = new Money();
-            var quantity = new Quantity(NumberOfTimesToApplyOffer(products));
-
-            Action offer = () => discount += new Milk().Cost();
-            quantity.Do(offer);
+            var numberOfTimesToApplyOffer = NumberOfTimesToApplyOffer(products);
+            discount += ApplyOffer(numberOfTimesToApplyOffer);
 
             return discount;
         }
 
         private int NumberOfTimesToApplyOffer(Products products)
         {
-            return products.Count(product => product.GetType() == typeof(Milk))/4;
+            var milk = products.SingleOrDefault(product => product.GetType() == typeof(Milk));
+            if (milk == null)
+            {
+                return 0;
+            }
+
+            return milk.Quantity/4;
+        }
+
+        private Money ApplyOffer(int numberOfTimesToApplyOffer)
+        {
+            Money discount = new Money();
+            for (int i = 0; i < numberOfTimesToApplyOffer; i++)
+            {
+                discount += new Milk().Price;
+            }
+            return discount;
         }
     }
 }

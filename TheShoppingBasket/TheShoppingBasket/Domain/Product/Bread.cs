@@ -2,9 +2,6 @@
 {
     public class Bread : Product
     {
-        public override Money Cost()
-        {
-            return new Money(1.00m);
-        }
+        public override Money Price => new Money(1.00m);
     }
 }

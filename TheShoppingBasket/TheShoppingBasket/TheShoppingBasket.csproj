@@ -57,7 +57,6 @@
     <Compile Include="Domain\Product\NullProduct.cs" />
     <Compile Include="Domain\Product\Product.cs" />
     <Compile Include="Domain\Product\Products.cs" />
-    <Compile Include="Domain\Quantity.cs" />
     <Compile Include="Domain\ShoppingBasket.cs" />
     <Compile Include="Infrastructure\Display.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

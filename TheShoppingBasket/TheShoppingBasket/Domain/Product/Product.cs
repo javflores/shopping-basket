@@ -2,13 +2,18 @@
 {
     public abstract class Product
     {
-        private int _quantity = 0;
+        public int Quantity;
 
-        public abstract Money Cost();
+        public abstract Money Price { get; }
 
         public void AddQuantity(int quantity)
         {
-            _quantity += quantity;
+            Quantity += quantity;
+        }
+
+        public Money Cost()
+        {
+            return Price*Quantity;
         }
     }
 }

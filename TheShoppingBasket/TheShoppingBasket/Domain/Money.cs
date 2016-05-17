@@ -33,6 +33,12 @@ namespace TheShoppingBasket.Domain
             return new Money(amount);
         }
 
+        public static Money operator *(Money money, int multiplier)
+        {
+            var amount = money._amount * multiplier;
+            return new Money(amount);
+        }
+
         public Money FiftyPercent()
         {
             return new Money(_amount * 0.5m);

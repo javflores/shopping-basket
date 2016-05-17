@@ -65,8 +65,8 @@
     <Compile Include="Domain\FiftyPercentBreadDiscountShould.cs" />
     <Compile Include="Domain\FourthMilkFreeDiscountShould.cs" />
     <Compile Include="Domain\MoneyShould.cs" />
+    <Compile Include="Domain\ProductShould.cs" />
     <Compile Include="Domain\ProductsShould.cs" />
-    <Compile Include="Domain\QuantityShould.cs" />
     <Compile Include="Domain\ShoppingBasketShould.cs" />
     <Compile Include="ProductWarehouseShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

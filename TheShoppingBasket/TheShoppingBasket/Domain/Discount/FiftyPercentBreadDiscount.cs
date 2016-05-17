@@ -17,15 +17,19 @@ namespace TheShoppingBasket.Domain.Discount
 
         private Money Offer()
         {
-            return new Bread().Cost().FiftyPercent();
+            return new Bread().Price.FiftyPercent();
         }
 
         private bool CanApplyOffer(Products products)
         {
-            var numberOfButter = products.Count(product => product.GetType() == typeof(Butter));
-            var numberOfBread = products.Count(product => product.GetType() == typeof(Bread));
+            var butter = products.SingleOrDefault(product => product.GetType() == typeof(Butter));
+            var bread = products.SingleOrDefault(product => product.GetType() == typeof(Bread));
+            if (butter == null || bread == null)
+            {
+                return false;
+            }
 
-            return numberOfBread > 0 && numberOfButter > 1;
+            return bread.Quantity > 0 && butter.Quantity > 1;
         }
     }
 }

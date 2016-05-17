@@ -5,7 +5,7 @@ namespace TheShoppingBasket.Domain
 {
     public interface IShoppingBasket
     {
-        void Add(Product.Product productName, Quantity quantity);
+        void Add(Product.Product product);
         Money Total();
     }
 
@@ -14,9 +14,9 @@ namespace TheShoppingBasket.Domain
         private readonly Products _products = new Products();
         private readonly Discounts _discounts = new Discounts();
 
-        public void Add(Product.Product product, Quantity quantity)
+        public void Add(Product.Product product)
         {
-            quantity.Do(() => _products.Add(product));
+            _products.Add(product);
         }
 
         public Money Total()

@@ -2,9 +2,6 @@
 {
     class NullProduct : Product
     {
-        public override Money Cost()
-        {
-            return new Money();
-        }
+        public override Money Price => new Money();
     }
 }

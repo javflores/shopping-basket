@@ -2,9 +2,6 @@ namespace TheShoppingBasket.Domain.Product
 {
     public class Butter : Product
     {
-        public override Money Cost()
-        {
-            return new Money(0.80m);
-        }
+        public override Money Price => new Money(0.80m);
     }
 }

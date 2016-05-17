@@ -28,9 +28,8 @@ namespace TheShoppingBasketTests
         {
             _application.Execute(command);
 
-            Quantity expectedQuantity = new Quantity(quantity);
             _shoppingBasket.Received().Add(
-                Arg.Is<Product>(p => p.GetType() == typeOfProduct), Arg.Is<Quantity>(q => q.Equals(expectedQuantity)));
+                Arg.Is<Product>(p => p.GetType() == typeOfProduct && p.Quantity == quantity));
         }
 
         [Fact]

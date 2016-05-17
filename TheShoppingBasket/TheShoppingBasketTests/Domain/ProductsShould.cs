@@ -47,6 +47,7 @@ namespace TheShoppingBasketTests.Domain
 
         private void AddProduct(Product product)
         {
+            product.AddQuantity(1);
             _products.Add(product);
         }
     }
