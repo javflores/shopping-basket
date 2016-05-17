@@ -3,16 +3,16 @@ using TheShoppingBasket.Domain.Product;
 
 namespace TheShoppingBasket.Services
 {
-    public interface IProductCatalogue
+    public interface IProductWarehouse
     {
-        Product Get(string product);
+        Product Find(string product);
     }
 
-    internal class ProductCatalogue : IProductCatalogue
+    internal class ProductWarehouse : IProductWarehouse
     {
         private readonly Dictionary<string, Product> _productCatalogue;
 
-        public ProductCatalogue()
+        public ProductWarehouse()
         {
             _productCatalogue = new Dictionary<string, Product>()
             {
@@ -22,14 +22,14 @@ namespace TheShoppingBasket.Services
             };
         }
 
-        public Product Get(string product)
+        public Product Find(string product)
         {
             if (_productCatalogue.ContainsKey(product))
             {
                 return _productCatalogue[product];
             }
 
-            return new Product(product);
+            return new NullProduct();
             
         }
     }

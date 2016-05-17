@@ -10,7 +10,7 @@ namespace TheShoppingBasket
     {
         private readonly IShoppingBasket _shoppingBasket;
         private readonly IDisplay _display;
-        private readonly IProductCatalogue _productCatalogue = new ProductCatalogue();
+        private readonly IProductWarehouse _productWarehouse = new ProductWarehouse();
 
         public Application(IShoppingBasket shoppingBasket, IDisplay display)
         {
@@ -33,7 +33,7 @@ namespace TheShoppingBasket
         {
             var parameters = ParseAddProductCommand(command);
 
-            Product product = _productCatalogue.Get(parameters.Item1);
+            Product product = _productWarehouse.Find(parameters.Item1);
             Quantity quantity = (Quantity) parameters.Item2;
 
             _shoppingBasket.Add(product, quantity);

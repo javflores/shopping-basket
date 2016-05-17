@@ -69,7 +69,7 @@
     <Compile Include="Domain\ProductsShould.cs" />
     <Compile Include="Domain\QuantityShould.cs" />
     <Compile Include="Domain\ShoppingBasketShould.cs" />
-    <Compile Include="ProductCatalogueShould.cs" />
+    <Compile Include="ProductWarehouseShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
