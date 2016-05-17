@@ -28,20 +28,21 @@ namespace TheShoppingBasketTests.Domain
         public void cost_price_times_quantity()
         {
             Product product = Substitute.For<Product>("dummy");
-            product.Price.Returns(new Money(1.0m));
+            var productPrice = new Money(1.0m);
+            product.Price.Returns(productPrice);
 
             product.AddQuantity(2);
 
-            Assert.Equal(product.Price * 2, product.Cost());
+            Assert.Equal(productPrice * 2, product.Cost());
         }
 
         [Fact]
         public void equal_to_another_product_when_name_is_same()
         {
             Product product = Substitute.For<Product>("dummy");
-            Product another = Substitute.For<Product>("dummy");
+            Product anotherProduct = Substitute.For<Product>("dummy");
 
-            Assert.True(product.Equals(another));
+            Assert.True(product.Equals(anotherProduct));
         }
     }
 }
